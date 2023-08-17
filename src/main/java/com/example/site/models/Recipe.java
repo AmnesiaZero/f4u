@@ -1,9 +1,11 @@
-package models;
+package com.example.site.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-public class RecipeModel {
+@AllArgsConstructor
+public class Recipe {
     int id;
     int dishId;
     int ingredientId;
