@@ -17,7 +17,7 @@ public class DishController {
     @Autowired
     private DishService dishService;
     @GetMapping("/get")
-    public List<Dish> getDish(){
-        return dishService.getDish();
+    public List<Dish> getDishes(){
+        return dishService.getDishes();
     }
 }
