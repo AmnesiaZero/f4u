@@ -12,11 +12,11 @@ import java.util.List;
 
 @Data
 @RestController
-@RequestMapping("/ingredient")
+@RequestMapping("/ingredients")
 public class IngredientController {
     @Autowired
     private IngredientService ingredientService;
-    @GetMapping("/get")
+    @GetMapping("/get-all-ingredients")
     public List<Ingredient> getIngredients(){
         return ingredientService.getIngredients();
     }

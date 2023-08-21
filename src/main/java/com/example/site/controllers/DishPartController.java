@@ -1,7 +1,7 @@
 package com.example.site.controllers;
 
-import com.example.site.models.Recipe;
-import com.example.site.service.RecipeService;
+import com.example.site.models.DishPart;
+import com.example.site.service.DishPartService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,13 +12,13 @@ import java.util.List;
 
 @Data
 @RestController
-@RequestMapping("/recipe")
-public class RecipeController {
+@RequestMapping("/recipes")
+public class DishPartController {
     @Autowired
-    private RecipeService recipeService;
-    @GetMapping("/get")
-    public List<Recipe> getRecipe(){
-        return recipeService.getRecipes();
+    private DishPartService dishPartService;
+    @GetMapping("/get-all-dish-parts")
+    public List<DishPart> getAllDishParts(){
+        return dishPartService.getRecipes();
     }
 
 }

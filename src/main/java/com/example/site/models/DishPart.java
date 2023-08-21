@@ -1,15 +1,14 @@
 package com.example.site.models;
 
+import com.example.site.service.DishPartService;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import org.hibernate.annotations.ManyToAny;
-import org.springframework.data.annotation.Id;
+import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Data
 @Entity
-@Table(name = "recipe")
-public class Recipe {
+@Table(name = "dish_part")
+public class DishPart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",nullable = false,updatable = false)
@@ -20,15 +19,17 @@ public class Recipe {
     int ingredientId;
     @Column(name = "qty")
     int qty;
-    @Column(name = "qty_calory")
+    @Transient
     int qtyCalory;
 
-    public Recipe() {
+    public DishPart() {
     }
-    public Recipe(int dishId, int ingredientId, int qty, int qtyCalory) {
+    public DishPart(int dishId, int ingredientId, int qty, int qtyCalory) {
         this.dishId = dishId;
         this.ingredientId = ingredientId;
         this.qty = qty;
         this.qtyCalory = qtyCalory;
     }
+
+
 }
