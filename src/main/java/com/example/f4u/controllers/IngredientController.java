@@ -1,7 +1,7 @@
-package com.example.site.controllers;
+package com.example.f4u.controllers;
 
-import com.example.site.models.Ingredient;
-import com.example.site.service.IngredientService;
+import com.example.f4u.models.Ingredient;
+import com.example.f4u.service.IngredientService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

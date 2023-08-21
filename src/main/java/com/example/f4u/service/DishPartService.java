@@ -1,16 +1,13 @@
-package com.example.site.service;
+package com.example.f4u.service;
 
-import com.example.site.exceptions.DishNotFoundException;
-import com.example.site.exceptions.DishPartNotFoundException;
-import com.example.site.models.Dish;
-import com.example.site.models.Ingredient;
-import com.example.site.models.DishPart;
-import com.example.site.repositories.DishPartRepository;
+import com.example.f4u.exceptions.DishPartNotFoundException;
+import com.example.f4u.models.Ingredient;
+import com.example.f4u.models.DishPart;
+import com.example.f4u.repositories.DishPartRepository;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 @Log4j

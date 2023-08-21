@@ -1,4 +1,4 @@
-package com.example.site.exceptions;
+package com.example.f4u.exceptions;
 
 public class IngredientNotFoundException extends RuntimeException {
     public IngredientNotFoundException(int id){

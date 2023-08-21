@@ -1,9 +1,8 @@
-package com.example.site.service;
+package com.example.f4u.service;
 
-import com.example.site.exceptions.IngredientNotFoundException;
-import com.example.site.models.Ingredient;
-import com.example.site.repositories.IngredientRepository;
-import lombok.AllArgsConstructor;
+import com.example.f4u.exceptions.IngredientNotFoundException;
+import com.example.f4u.models.Ingredient;
+import com.example.f4u.repositories.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

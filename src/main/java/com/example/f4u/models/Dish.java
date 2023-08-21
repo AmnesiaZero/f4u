@@ -1,4 +1,4 @@
-package com.example.site.models;
+package com.example.f4u.models;
 
 import jakarta.persistence.*;
 import lombok.*;

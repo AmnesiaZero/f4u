@@ -1,9 +1,7 @@
-package com.example.site.models;
+package com.example.f4u.models;
 
-import com.example.site.service.DishPartService;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Data
 @Entity

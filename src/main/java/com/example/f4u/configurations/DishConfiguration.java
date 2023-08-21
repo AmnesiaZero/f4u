@@ -1,12 +1,9 @@
-package com.example.site.configurations;
+package com.example.f4u.configurations;
 
-import com.example.site.models.Dish;
-import com.example.site.repositories.DishRepository;
+import com.example.f4u.repositories.DishRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.List;
 
 @Configuration
 public class DishConfiguration {

@@ -1,6 +1,5 @@
-package com.example.site.dtos;
+package com.example.f4u.dtos;
 
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

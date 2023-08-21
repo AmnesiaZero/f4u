@@ -1,6 +1,6 @@
-package com.example.site.repositories;
+package com.example.f4u.repositories;
 
-import com.example.site.models.DishPart;
+import com.example.f4u.models.DishPart;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

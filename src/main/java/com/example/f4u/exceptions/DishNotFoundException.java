@@ -1,4 +1,4 @@
-package com.example.site.exceptions;
+package com.example.f4u.exceptions;
 
 public class DishNotFoundException extends RuntimeException{
     public DishNotFoundException(int id){

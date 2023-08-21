@@ -1,7 +1,7 @@
-package com.example.site.controllers;
+package com.example.f4u.controllers;
 
-import com.example.site.models.DishPart;
-import com.example.site.service.DishPartService;
+import com.example.f4u.models.DishPart;
+import com.example.f4u.service.DishPartService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

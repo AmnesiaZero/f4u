@@ -1,6 +1,4 @@
-package com.example.site.dtos;
-
-import jakarta.persistence.*;
+package com.example.f4u.dtos;
 
 public class DishDto {
     private Integer id;

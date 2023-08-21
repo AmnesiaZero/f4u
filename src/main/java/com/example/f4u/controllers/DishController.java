@@ -1,9 +1,9 @@
-package com.example.site.controllers;
+package com.example.f4u.controllers;
 
-import com.example.site.models.Ingredient;
-import com.example.site.service.DishService;
+import com.example.f4u.models.Ingredient;
+import com.example.f4u.service.DishService;
 import lombok.Data;
-import com.example.site.models.Dish;
+import com.example.f4u.models.Dish;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
