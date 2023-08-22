@@ -18,7 +18,7 @@ public class DishPartController {
     private DishPartService dishPartService;
     @GetMapping("/get-all-dish-parts")
     public List<DishPart> getAllDishParts(){
-        return dishPartService.getRecipes();
+        return dishPartService.getAllDishParts();
     }
 
 }

@@ -6,6 +6,8 @@ import lombok.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "dish")
+@NoArgsConstructor
+@Builder
 public class Dish {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

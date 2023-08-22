@@ -1,10 +1,12 @@
 package com.example.f4u.service;
 
+import com.example.f4u.dtos.DishDTO;
+import com.example.f4u.dtos.IngredientDTO;
 import com.example.f4u.exceptions.DishNotFoundException;
 import com.example.f4u.models.Dish;
 import com.example.f4u.models.DishPart;
-import com.example.f4u.models.Ingredient;
 import com.example.f4u.repositories.DishRepository;
+import lombok.Builder;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 @Log4j
 @Service
+@Builder
 public class DishService {
     @Autowired
     private DishRepository dishRepository;
@@ -27,9 +30,23 @@ public class DishService {
     //Надо
     //1. Получить id полученных ингридиентов
     //2. Получить все DishPart,с одинаковым dishId и совпадающим с id полученных ингридиентов
-    public List<Dish> getDishesByIngredients(List<Ingredient> ingredients) {
+    public List<DishDTO> getDishesByIngredients(List<IngredientDTO> ingredients){
         List<Integer> ingredientsId = ingredientService.getIngredientsId(ingredients);
         return findDishesByIngredientsIds(ingredientsId);
+    }
+    public Dish toDish(DishDTO dishDTO){
+        return Dish.builder().
+                id(dishDTO.getId()).
+                title(dishDTO.getTitle()).
+                totalCalory(dishDTO.getTotalCalory()).
+                build();
+    }
+    public DishDTO toDTO(Dish dish){
+        return DishDTO.builder().
+                id(dish.getId()).
+                title(dish.getTitle()).
+                totalCalory(dish.getTotalCalory()).
+                build();
     }
 
     public Dish findDishById(int dishId) {
@@ -38,30 +55,35 @@ public class DishService {
             throw new DishNotFoundException(dishId);
         return dish.get();
     }
-    public List<Dish> findDishesByIngredientsIds(List<Integer> ingredientsIds){
+    public List<DishDTO> findDishesByIngredientsIds(List<Integer> ingredientsIds){
         List<Dish> finalDishes = new ArrayList<>();
         List<Dish> allDishes = getDishes();
         for(Dish dish:allDishes) {
-            int dishId = dish.getId();
-            List<DishPart> dishParts = dishPartService.findDishPartsByDishId(dishId);
+            List<DishPart> dishParts = dishPartService.findDishPartsByDishId(dish.getId());
+            List<Integer> ingredientIdsCopy = new ArrayList<>(ingredientsIds);
             for(DishPart dishPart:dishParts){
                 for(int id:ingredientsIds){
                     if(dishPart.getIngredientId()==id)
-                        ingredientsIds.remove(id);
+                        ingredientIdsCopy.remove(id);
                 }
             }
-            if(ingredientsIds.isEmpty()){
+            if(ingredientIdsCopy.isEmpty()){
                 log.info("Найдено нужное блюдо - " + dish);
                 finalDishes.add(dish);
             }
+            else
+                log.info("Блюдо" + dish + "не подходит");
         }
         if(finalDishes.isEmpty()){
             log.info("Нужные блюда не были найдены");
             throw new DishNotFoundException("Нужные блюда не были найдены");
         }
-        else
-            return finalDishes;
+        List<DishDTO> dishDTOS = new ArrayList<>();
+        for (Dish dish:finalDishes)
+            dishDTOS.add(toDTO(dish));
+        return dishDTOS;
     }
+
 //    public List<Dish> getDishesByIngredients(){
 //
 //

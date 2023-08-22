@@ -1,6 +1,7 @@
 package com.example.f4u.controllers;
 
-import com.example.f4u.models.Ingredient;
+import com.example.f4u.dtos.DishDTO;
+import com.example.f4u.dtos.IngredientDTO;
 import com.example.f4u.service.DishService;
 import lombok.Data;
 import com.example.f4u.models.Dish;
@@ -22,7 +23,7 @@ public class DishController {
         return dishService.getDishes();
     }
     @PostMapping("/get-dishes-by-ingredients")
-    public List<Dish> getDishesByIngredients(@RequestBody List<Ingredient> ingredients){
+    public List<DishDTO> getDishesByIngredients(@RequestBody List<IngredientDTO> ingredients){
         log.info("get Dishes By Ingredients");
         return dishService.getDishesByIngredients(ingredients);
     }

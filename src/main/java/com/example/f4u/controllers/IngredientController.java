@@ -1,5 +1,6 @@
 package com.example.f4u.controllers;
 
+import com.example.f4u.dtos.IngredientDTO;
 import com.example.f4u.models.Ingredient;
 import com.example.f4u.service.IngredientService;
 import lombok.Data;
@@ -12,12 +13,11 @@ import java.util.List;
 
 @Data
 @RestController
-@RequestMapping("/ingredients")
 public class IngredientController {
     @Autowired
     private IngredientService ingredientService;
-    @GetMapping("/get-all-ingredients")
-    public List<Ingredient> getIngredients(){
+    @GetMapping("/main")
+    public List<IngredientDTO> getIngredients(){
         return ingredientService.getIngredients();
     }
 

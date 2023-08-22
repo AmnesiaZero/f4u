@@ -19,7 +19,7 @@ public class DishPartService {
     private IngredientService ingredientService;
     @Autowired
     private DishService dishService;
-    public List<DishPart> getRecipes(){
+    public List<DishPart> getAllDishParts(){
         return dishPartRepository.findAll();
     }
     public DishPart findRecipeById(int recipeId){

@@ -9,13 +9,13 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RecipeDto {
+public class DishPartDTO {
     private Integer id;
-    int dishId;
-    int ingredientId;
-    int qty;
-    int qtyCalory;
-    public RecipeDto(int dishId, int ingredientId, int qty, int qtyCalory) {
+    private int dishId;
+    private int ingredientId;
+    private int qty;
+    private int qtyCalory;
+    public DishPartDTO(int dishId, int ingredientId, int qty, int qtyCalory) {
         this.dishId = dishId;
         this.ingredientId = ingredientId;
         this.qty = qty;

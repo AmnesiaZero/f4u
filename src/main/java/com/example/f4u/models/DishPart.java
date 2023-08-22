@@ -6,28 +6,34 @@ import lombok.*;
 @Data
 @Entity
 @Table(name = "dish_part")
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class DishPart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",nullable = false,updatable = false)
     private Integer id;
     @Column(name = "dish_id")
-    int dishId;
+    private int dishId;
     @Column(name = "ingredient_id")
-    int ingredientId;
+    private int ingredientId;
     @Column(name = "qty")
-    int qty;
+    private int qty;
     @Transient
-    int qtyCalory;
-
-    public DishPart() {
-    }
+    private int qtyCalory;
     public DishPart(int dishId, int ingredientId, int qty, int qtyCalory) {
         this.dishId = dishId;
         this.ingredientId = ingredientId;
         this.qty = qty;
         this.qtyCalory = qtyCalory;
     }
+    public DishPart(int dishId,int ingredientId, int qty){
+        this.ingredientId = ingredientId;
+        this.qty = qty;
+        this.qtyCalory = qtyCalory;
+    }
+
 
 
 }

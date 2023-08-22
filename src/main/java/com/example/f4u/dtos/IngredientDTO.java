@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class IngredientDto {
+public class IngredientDTO {
     private Integer id;
-    String name;
-    int calory;
-    public IngredientDto(String name, int calory) {
+    private String name;
+    private int calory;
+    public IngredientDTO(String name, int calory) {
         this.name = name;
         this.calory = calory;
     }
