@@ -58,16 +58,30 @@ public class DishService {
     public List<DishDTO> findDishesByIngredientsIds(List<Integer> ingredientsIds){
         List<Dish> finalDishes = new ArrayList<>();
         List<Dish> allDishes = getDishes();
+        log.debug(allDishes);
         for(Dish dish:allDishes) {
+            log.debug("Dish - " + dish);
             List<DishPart> dishParts = dishPartService.findDishPartsByDishId(dish.getId());
-            List<Integer> ingredientIdsCopy = new ArrayList<>(ingredientsIds);
+            log.debug(dishParts);
+            List<Integer> ingredientsIdsCopy = new ArrayList<>(ingredientsIds);
+            log.debug(ingredientsIdsCopy);
+            boolean flag = false;
             for(DishPart dishPart:dishParts){
-                for(int id:ingredientsIds){
-                    if(dishPart.getIngredientId()==id)
-                        ingredientIdsCopy.remove(id);
+                for(int ingredientId:ingredientsIdsCopy){//проходимся по всем полученным ингридиентам
+                    if(dishPart.getIngredientId()==ingredientId)//если в нашем блюде есть нужный ингридиент -
+                          ingredientsIdsCopy.remove(ingredientId);// убираем его из списка
+                    if(ingredientsIdsCopy.isEmpty()){
+                        log.debug("Найдено до конца цикла");
+                        flag = true;
+                        break;
+                    }
+                }
+                if(flag){
+                    log.debug("Вышел из цикла,поскольку блюдо уже подходит");
+                    break;
                 }
             }
-            if(ingredientIdsCopy.isEmpty()){
+            if(ingredientsIdsCopy.isEmpty()){
                 log.info("Найдено нужное блюдо - " + dish);
                 finalDishes.add(dish);
             }

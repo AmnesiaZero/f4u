@@ -17,5 +17,9 @@ public class IngredientDTO {
         this.name = name;
         this.calory = calory;
     }
+    public IngredientDTO(String name){
+        this.name = name;
+    }
+
 
 }

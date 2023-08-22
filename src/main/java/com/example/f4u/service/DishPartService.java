@@ -15,10 +15,10 @@ import java.util.Optional;
 public class DishPartService {
     @Autowired
     private DishPartRepository dishPartRepository;
-    @Autowired
-    private IngredientService ingredientService;
-    @Autowired
-    private DishService dishService;
+//    @Autowired
+//    private IngredientService ingredientService;
+//    @Autowired
+//    private DishService dishService;
     public List<DishPart> getAllDishParts(){
         return dishPartRepository.findAll();
     }
@@ -36,12 +36,12 @@ public class DishPartService {
         DishPart dishPart = findRecipeById(recipeId);
         return dishPart.getQty();
     }
-    public int findQtyCalory(int recipeId){
-        Ingredient ingredient = ingredientService.findIngredientById(findIngredientId(recipeId));
-        int ingredientCalory = ingredient.getCalory();
-        int qty = findQty(recipeId);
-        return ingredientCalory * qty;
-    }
+//    public int findQtyCalory(int recipeId){
+//        Ingredient ingredient = ingredientService.findIngredientById(findIngredientId(recipeId));
+//        int ingredientCalory = ingredient.getCalory();
+//        int qty = findQty(recipeId);
+//        return ingredientCalory * qty;
+//    }
     public List<DishPart> findDishPartsByDishId(int dishId){
         List<DishPart> dishParts = dishPartRepository.findByDishId(dishId);
         if (dishParts.isEmpty())

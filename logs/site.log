@@ -1,0 +1,89 @@
+2023-08-22 16:37:40 INFO  DishController:28 - get Dishes By Ingredients
+2023-08-22 16:37:40 INFO  DishController:29 - JSON:{
+    "ingredients": [
+        {
+            "name": "Курица"
+        },
+        {
+            "name": "Капуста"
+        }
+    ]
+}
+2023-08-22 16:43:36 INFO  DishController:28 - get Dishes By Ingredients
+2023-08-22 16:43:36 INFO  DishController:29 - JSON:{
+    "ingredients": [
+        {
+            "name": "Курица"
+        },
+        {
+            "name": "Капуста"
+        }
+    ]
+}
+2023-08-22 16:43:36 INFO  DishService:75 - БлюдоDish(id=1, title=Суп, totalCalory=0)не подходит
+2023-08-22 16:43:36 INFO  DishService:78 - Нужные блюда не были найдены
+2023-08-22 17:08:10 INFO  DishController:28 - get Dishes By Ingredients
+2023-08-22 17:08:10 INFO  DishController:29 - JSON:{
+    "ingredients": [
+        {
+            "name": "Курица"
+        },
+        {
+            "name": "Капуста"
+        }
+    ]
+}
+2023-08-22 17:12:09 INFO  DishController:28 - get Dishes By Ingredients
+2023-08-22 17:12:09 INFO  DishController:29 - JSON:{
+    "ingredients": [
+        {
+            "name": "Курица"
+        },
+        {
+            "name": "Капуста"
+        }
+    ]
+}
+2023-08-22 17:23:07 INFO  DishController:28 - get Dishes By Ingredients
+2023-08-22 17:23:07 INFO  DishController:29 - JSON:{
+    "ingredients": [
+        {
+            "name": "Курица"
+        },
+        {
+            "name": "Капуста"
+        }
+    ]
+}
+2023-08-22 17:23:07 DEBUG DishService:61 - [Dish(id=1, title=Суп, totalCalory=0)]
+2023-08-22 17:23:07 DEBUG DishService:63 - Dish - Dish(id=1, title=Суп, totalCalory=0)
+2023-08-22 17:27:01 INFO  DishController:28 - get Dishes By Ingredients
+2023-08-22 17:27:01 INFO  DishController:29 - JSON:{
+    "ingredients": [
+        {
+            "name": "Курица"
+        },
+        {
+            "name": "Капуста"
+        }
+    ]
+}
+2023-08-22 17:27:01 DEBUG DishService:61 - [Dish(id=1, title=Суп, totalCalory=0)]
+2023-08-22 17:27:01 DEBUG DishService:63 - Dish - Dish(id=1, title=Суп, totalCalory=0)
+2023-08-22 17:27:01 DEBUG DishService:65 - [DishPart(id=1, dishId=1, ingredientId=1, qty=1, qtyCalory=0), DishPart(id=2, dishId=1, ingredientId=2, qty=1, qtyCalory=0), DishPart(id=3, dishId=1, ingredientId=3, qty=1, qtyCalory=0)]
+2023-08-22 17:27:01 DEBUG DishService:67 - [1, 3, 2]
+2023-08-22 17:37:30 INFO  DishController:28 - get Dishes By Ingredients
+2023-08-22 17:37:30 INFO  DishController:29 - JSON:{
+    "ingredients": [
+        {
+            "name": "Курица"
+        },
+        {
+            "name": "Капуста"
+        }
+    ]
+}
+2023-08-22 17:37:31 DEBUG DishService:61 - [Dish(id=1, title=Суп, totalCalory=0)]
+2023-08-22 17:37:31 DEBUG DishService:63 - Dish - Dish(id=1, title=Суп, totalCalory=0)
+2023-08-22 17:37:31 DEBUG DishService:65 - [DishPart(id=1, dishId=1, ingredientId=1, qty=1, qtyCalory=0), DishPart(id=2, dishId=1, ingredientId=2, qty=1, qtyCalory=0), DishPart(id=3, dishId=1, ingredientId=3, qty=1, qtyCalory=0)]
+2023-08-22 17:37:31 DEBUG DishService:67 - [1, 3, 2]
