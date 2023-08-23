@@ -13,13 +13,4 @@ public class IngredientDTO {
     private Integer id;
     private String name;
     private int calory;
-    public IngredientDTO(String name, int calory) {
-        this.name = name;
-        this.calory = calory;
-    }
-    public IngredientDTO(String name){
-        this.name = name;
-    }
-
-
 }

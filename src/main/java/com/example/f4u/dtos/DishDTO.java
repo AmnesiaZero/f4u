@@ -13,8 +13,4 @@ public class DishDTO {
     private Integer id;
     private String title;
     private int totalCalory;
-    public DishDTO(String title, int totalCalory) {
-        this.title = title;
-        this.totalCalory = totalCalory;
-    }
 }

@@ -20,19 +20,12 @@ public class DishPart {
     private int ingredientId;
     @Column(name = "qty")
     private int qty;
-    @Transient
-    private int qtyCalory;
-    public DishPart(int dishId, int ingredientId, int qty, int qtyCalory) {
+    public DishPart(int dishId, int ingredientId, int qty) {
         this.dishId = dishId;
         this.ingredientId = ingredientId;
         this.qty = qty;
-        this.qtyCalory = qtyCalory;
     }
-    public DishPart(int dishId,int ingredientId, int qty){
-        this.ingredientId = ingredientId;
-        this.qty = qty;
-        this.qtyCalory = qtyCalory;
-    }
+
 
 
 

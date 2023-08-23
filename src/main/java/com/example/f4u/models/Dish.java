@@ -2,6 +2,8 @@ package com.example.f4u.models;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Formula;
+
 @Data
 @AllArgsConstructor
 @Entity
@@ -17,13 +19,7 @@ public class Dish {
     @Column(name = "title")
     private String title;
 
-    @Transient
-    private int totalCalory;
 
-    public Dish(String title, int totalCalory) {
-        this.title = title;
-        this.totalCalory = totalCalory;
-    }
     public Dish(String title){
         this.title = title;
     }

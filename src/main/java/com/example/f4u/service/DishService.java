@@ -1,7 +1,6 @@
 package com.example.f4u.service;
 
 import com.example.f4u.dtos.DishDTO;
-import com.example.f4u.dtos.IngredientDTO;
 import com.example.f4u.exceptions.DishNotFoundException;
 import com.example.f4u.models.Dish;
 import com.example.f4u.models.DishPart;
@@ -12,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 @Log4j
@@ -30,24 +30,25 @@ public class DishService {
     //Надо
     //1. Получить id полученных ингридиентов
     //2. Получить все DishPart,с одинаковым dishId и совпадающим с id полученных ингридиентов
-    public List<DishDTO> getDishesByIngredients(List<IngredientDTO> ingredients){
-        List<Integer> ingredientsId = ingredientService.getIngredientsId(ingredients);
-        return findDishesByIngredientsIds(ingredientsId);
+    public List<DishDTO> getDishesByIngredients(int[] ingredientsIds){
+        ArrayList<Integer> ingredientsIdsList = new ArrayList<>();
+        for (int id:ingredientsIds)
+            ingredientsIdsList.add(id);
+        return findDishesByIngredientsIds(ingredientsIdsList);
     }
     public Dish toDish(DishDTO dishDTO){
         return Dish.builder().
                 id(dishDTO.getId()).
                 title(dishDTO.getTitle()).
-                totalCalory(dishDTO.getTotalCalory()).
                 build();
     }
     public DishDTO toDTO(Dish dish){
         return DishDTO.builder().
                 id(dish.getId()).
                 title(dish.getTitle()).
-                totalCalory(dish.getTotalCalory()).
                 build();
     }
+
 
     public Dish findDishById(int dishId) {
         Optional<Dish> dish = dishRepository.findById(dishId);
@@ -67,9 +68,13 @@ public class DishService {
             log.debug(ingredientsIdsCopy);
             boolean flag = false;
             for(DishPart dishPart:dishParts){
-                for(int ingredientId:ingredientsIdsCopy){//проходимся по всем полученным ингридиентам
-                    if(dishPart.getIngredientId()==ingredientId)//если в нашем блюде есть нужный ингридиент -
-                          ingredientsIdsCopy.remove(ingredientId);// убираем его из списка
+                for(int i =0;i<ingredientsIdsCopy.size();i++){
+                    log.debug("ingredientsIdsCopy.get(i) - " + ingredientsIdsCopy.get(i));
+                    if(dishPart.getIngredientId()==ingredientsIdsCopy.get(i)) {
+                        log.debug("Удалено id - " + ingredientsIdsCopy.get(i));
+                        ingredientsIdsCopy.remove(Integer.valueOf(ingredientsIdsCopy.get(i)));
+                        log.debug("Лист - " + Arrays.toString(ingredientsIdsCopy.toArray()));
+                    }
                     if(ingredientsIdsCopy.isEmpty()){
                         log.debug("Найдено до конца цикла");
                         flag = true;
@@ -96,6 +101,16 @@ public class DishService {
         for (Dish dish:finalDishes)
             dishDTOS.add(toDTO(dish));
         return dishDTOS;
+    }
+
+    public int getTotalCalory(int dishId) {
+        List<DishPart> dishParts = dishPartService.findDishPartsByDishId(dishId);
+        int totalCalory = 0;
+        for(DishPart dishPart:dishParts){
+            totalCalory+=dishPartService.findQtyCalory(dishPart.getDishId());
+            log.debug("Сумма каллорий - " + totalCalory);
+        }
+        return totalCalory;
     }
 
 //    public List<Dish> getDishesByIngredients(){

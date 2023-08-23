@@ -15,33 +15,31 @@ import java.util.Optional;
 public class DishPartService {
     @Autowired
     private DishPartRepository dishPartRepository;
-//    @Autowired
-//    private IngredientService ingredientService;
-//    @Autowired
-//    private DishService dishService;
+    @Autowired
+    private IngredientService ingredientService;
     public List<DishPart> getAllDishParts(){
         return dishPartRepository.findAll();
     }
-    public DishPart findRecipeById(int recipeId){
-        Optional<DishPart> recipe = dishPartRepository.findById(recipeId);
+    public DishPart findDishPartById(int dishPartId){
+        Optional<DishPart> recipe = dishPartRepository.findById(dishPartId);
         if(recipe.isEmpty())
-            throw new DishPartNotFoundException(recipeId);
+            throw new DishPartNotFoundException(dishPartId);
         return recipe.get();
     }
-    public int findIngredientId(int recipeId){
-        DishPart dishPart = findRecipeById(recipeId);
+    public int findIngredientId(int dishPartId){
+        DishPart dishPart = findDishPartById(dishPartId);
         return dishPart.getIngredientId();
     }
-    public int findQty(int recipeId){
-        DishPart dishPart = findRecipeById(recipeId);
+    public int findQty(int dishPartId){
+        DishPart dishPart = findDishPartById(dishPartId);
         return dishPart.getQty();
     }
-//    public int findQtyCalory(int recipeId){
-//        Ingredient ingredient = ingredientService.findIngredientById(findIngredientId(recipeId));
-//        int ingredientCalory = ingredient.getCalory();
-//        int qty = findQty(recipeId);
-//        return ingredientCalory * qty;
-//    }
+    public int findQtyCalory(int dishPartId){
+        Ingredient ingredient = ingredientService.findIngredientById(findIngredientId(dishPartId));
+        int ingredientCalory = ingredient.getCalory();
+        int qty = findQty(dishPartId);
+        return ingredientCalory * qty;
+    }
     public List<DishPart> findDishPartsByDishId(int dishId){
         List<DishPart> dishParts = dishPartRepository.findByDishId(dishId);
         if (dishParts.isEmpty())

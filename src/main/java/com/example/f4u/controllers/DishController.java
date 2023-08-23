@@ -11,11 +11,13 @@ import org.springframework.asm.TypeReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Data
 @Log4j
 @RestController
+@RequestMapping("/dishes")
 public class DishController {
     @Autowired
     private DishService dishService;
@@ -24,13 +26,16 @@ public class DishController {
         return dishService.getDishes();
     }
     @PostMapping("/get-dishes-by-ingredients")
-    public List<DishDTO> getDishesByIngredients(@RequestBody String ingredientsJson){
+    public List<DishDTO> getDishesByIngredients(@RequestBody int[] ingredientsIds){
         log.info("get Dishes By Ingredients");
-        log.info("JSON:" + ingredientsJson);
-//        List<IngredientDTO> ingredientDTOS = new ObjectMapper().readValue(ingredientsJson, new TypeReference<List<DishDTO>>(){});
-        List<IngredientDTO> ingredientDTOS = List.of(new IngredientDTO("Капуста"),new IngredientDTO("Курица"),new IngredientDTO("Морковь"));
-        return dishService.getDishesByIngredients(ingredientDTOS);
-
+        log.info(Arrays.toString(ingredientsIds));
+        return dishService.getDishesByIngredients(ingredientsIds);
     }
+    @GetMapping("/get-total-calory")
+    public int getTotalCalory(@RequestBody int dishId){
+        log.debug("Dish id = " + dishId);
+        return dishService.getTotalCalory(dishId);
+    }
+
 
 }
