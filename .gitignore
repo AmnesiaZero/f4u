@@ -34,4 +34,5 @@ build/
 
 ## Project files ##
 src/main/resources/application.properties
+logs/f4u.log
 

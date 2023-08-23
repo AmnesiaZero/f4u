@@ -106,16 +106,10 @@ public class DishService {
     public int getTotalCalory(int dishId) {
         List<DishPart> dishParts = dishPartService.findDishPartsByDishId(dishId);
         int totalCalory = 0;
-        for(DishPart dishPart:dishParts){
+        for(DishPart dishPart:dishParts)
             totalCalory+=dishPartService.findQtyCalory(dishPart.getDishId());
-            log.debug("Сумма каллорий - " + totalCalory);
-        }
+        log.debug("Сумма каллорий - " + totalCalory);
         return totalCalory;
     }
-
-//    public List<Dish> getDishesByIngredients(){
-//
-//
-//    }
 
 }
