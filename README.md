@@ -23,3 +23,15 @@
 - [ ] Настроить коммуникацию между frontend и backend модулями
 - [ ] Захостить продукт на сервер
 - [ ] Выпустить финальную версию
+
+- [x] Add basic functions
+- [ ] Host on server
+- [x] Parse data to MySQL DB(100k rows)
+- [x] Add filter by themes letter
+- [x] Add inline buttons
+- [x] Add multi-threads
+- [ ] Add function to send anekdot once in selected period of time
+- [ ] Add rabitMQ
+- [ ] Add higher quality anekdots
+- [ ] Refactor for Spring Boot and Webhooks
+- [ ] Launch final version
