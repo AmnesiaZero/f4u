@@ -28,3 +28,9 @@
 - [ ] Захостить продукт на сервер
 - [ ] Выпустить финальную версию
 
+### Скрины:
+![image](https://github.com/AmnesiaZero/f4u/assets/90193990/71aae733-88f8-41de-871c-9df34fbaaad0)
+![image](https://github.com/AmnesiaZero/f4u/assets/90193990/39a6b90c-0951-425a-8f74-516d26fcc72b)
+
+
+
