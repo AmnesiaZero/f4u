@@ -10,6 +10,7 @@
   <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original-wordmark.svg" title="Git" **alt="Git" width="40" height="40"/>
 </div>
 ### Список задач:
+
 - [x] Сделать основу backend модуля
 - [x] Создать модели
 - [x] Создать контроллеры
@@ -24,14 +25,3 @@
 - [ ] Захостить продукт на сервер
 - [ ] Выпустить финальную версию
 
-- [x] Add basic functions
-- [ ] Host on server
-- [x] Parse data to MySQL DB(100k rows)
-- [x] Add filter by themes letter
-- [x] Add inline buttons
-- [x] Add multi-threads
-- [ ] Add function to send anekdot once in selected period of time
-- [ ] Add rabitMQ
-- [ ] Add higher quality anekdots
-- [ ] Refactor for Spring Boot and Webhooks
-- [ ] Launch final version
