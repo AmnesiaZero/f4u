@@ -41,10 +41,10 @@ public class DishPartService {
         return ingredientCalory * qty;
     }
     public List<DishPart> findDishPartsByDishId(int dishId){
-        List<DishPart> dishParts = dishPartRepository.findByDishId(dishId);
+        Optional<List<DishPart>> dishParts = dishPartRepository.findByDishId(dishId);
         if (dishParts.isEmpty())
             throw new DishPartNotFoundException("Не найдены dishPart с dishId = " + dishId);
-        return dishPartRepository.findByDishId(dishId);
+        return dishParts.get();
     }
 
 
